@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/app.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<title></title>
+	</head>
+	<body>
+		
+		<div class="header">
+			<div class="header_main clearfix">
+				<div class="header_main_left">
+					<div class="logo">Neets.cc</div>
+					<ul>
+						<li class="active"><a href="">首页</a></li>
+						<li><a href="">我的清单</a></li>
+						<li><a href="">分类</a></li>
+						<li><a href="">手机版</a></li>
+					</ul>
+				</div>
+				<div class="header_main_right">
+					<div class="search_about">
+						<input type="text" />
+						<a class="search_a">
+							<div class="search_btn"></div>
+						</a>
+					</div>
+					<a class="login_btn" href="">登录</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="diplayBox" style="margin-top: 80px;">
+			<div class="sub_title">
+				创建条目
+			</div>
+			<div class="batch_box clearfix">
+				<div class="bacth_row clearfix">
+					<div class="batch_row_l">
+						<span>*</span>豆瓣链接
+					</div>
+					<div class="batch_row_r">
+						<input type="" name="" id="" value="" />
+						<p>
+							填写正确的豆瓣链接，以便区别同名作品。如 https://movie.douban.com/subject/25826612/
+						</p>
+						<a href="https://movie.douban.com/subject_search?search_text=%E6%9D%83%E5%8A%9B%E7%9A%84%E6%B8%B8%E6%88%8F&cat=&swd=1" class="a1" target="_blank">
+							去豆瓣查询
+						</a>
+						<a href="" class="a2">
+							提交
+						</a>
+					</div>
+				</div>
+				<div class="batch_row2">
+					<p class="p1">
+						懒人直通车
+					</p>
+					<p class="p2">
+						QQ群反馈，处理更及时，更有好基友萌妹子等着你(￣▽￣)”
+					</p>
+					<div class="icon">
+						<a className={Style.error_pop_box_qq} target='_blank' href="http://shang.qq.com/wpa/qunwpa?idkey=d9713c736841d116a2275036577c95804a27e61474e92ac69fe752a685dfa772">
+							<img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="Neets用户反馈" title="Neets用户反馈" />
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+			
+		<!--底部-->
+		<div class="footer">
+			<div class="clearfix">
+				<div class="footer_l">
+					<p>免责声明</p>
+					<p>关于我们</p>
+					<p>官方微博  Neets小站</p>
+					<p>QQ群  305797656</p>
+				</div>
+				<div class="footer_r">
+					<div class="clearfix">
+						<div class="fot_er">
+						</div>
+						<div class="fot_txt">
+							<p>Neets</p>
+							<p>公众号</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="footer_b">
+				本站不提供任何视听上传服务，所有内容均引用自视频分享站点所提供的公开引用资源
+			</p>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$(".hot_box_li_r").mousemove(function(){
+				$(this).parents('.hot_box').find(".hot_box_li_r").removeClass('active');
+				$(this).addClass('active');
+			});
+		});
+		
+	</script>
+</html>

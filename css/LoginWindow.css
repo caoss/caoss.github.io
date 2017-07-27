@@ -1,0 +1,54 @@
+.loginBox{
+  position: relative;
+  z-index: 19890215;
+  display: none;
+}
+.loadingShade {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.5);
+}
+.pop_login{
+	width: 700px;
+	height: 430px;
+	box-shadow:0 1px 30px #333;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	background: #fff;
+	border-radius:10px;
+	overflow: hidden;
+	background: url(../images/login/load.png) no-repeat;
+	background-position:0 0;
+	box-sizing: border-box;
+}
+.pop_login_right{
+	box-sizing: border-box;
+	padding-left:36px;
+	padding-top: 14px;
+	width: 370px;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: #647084;
+}
+
+.close{
+	position:absolute;
+	right:10px;
+	top: 10px;
+	width: 30px;
+	height: 30px;
+	background: red;
+	z-index: 999999999;
+	background:url(../images/login/background.png);
+	background-position:-98px 0;
+	cursor: pointer;
+}

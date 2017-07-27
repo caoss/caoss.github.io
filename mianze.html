@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/app.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<title></title>
+	</head>
+	<body>
+		<div class="header">
+			<div class="header_main clearfix">
+				<div class="header_main_left">
+					<div class="logo">Neets.cc</div>
+					<ul>
+						<li class="active"><a href="">首页</a></li>
+						<li><a href="">我的清单</a></li>
+						<li><a href="">分类</a></li>
+						<li><a href="">手机版</a></li>
+					</ul>
+				</div>
+				<div class="header_main_right">
+					<div class="search_about">
+						<input type="text" />
+						<a class="search_a">
+							<div class="search_btn"></div>
+						</a>
+					</div>
+					<a class="login_btn" href="">登录</a>
+				</div>
+			</div>
+		</div>
+		<div style="height: 80px;"></div>
+		<div class="mainze_box">
+			<h4>
+				免责声明
+			</h4>
+			<p>
+				Neets上内容均由用户自主添加，链接到互联网各大站点，本小站自身不存储、控制、编辑或修改第三方视频画面及内容，所有链接内容及图文版权均归原作者及其网站所有。链接至第三方页面，可能有令人不适的内容，本站不承担任何责任。
+			</p>
+			<p>当权利人发现在本站中的链接所指向的内容侵犯其版权时，请权利人通知本站，提供身份证明、权属证明及详细侵权情况证明，我们将及时采取措施移除相关内容链接！如对版权存有异议请联系“neetsneets@163.com”</p>
+		</div>
+		
+		<!--底部-->
+		<div class="footer">
+			<div class="clearfix">
+				<div class="footer_l">
+					<p>免责声明</p>
+					<p>关于我们</p>
+					<p>官方微博  Neets小站</p>
+					<p>QQ群  305797656</p>
+				</div>
+				<div class="footer_r">
+					<div class="clearfix">
+						<div class="fot_er">
+						</div>
+						<div class="fot_txt">
+							<p>Neets</p>
+							<p>公众号</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="footer_b">
+				本站不提供任何视听上传服务，所有内容均引用自视频分享站点所提供的公开引用资源
+			</p>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$(".hot_box_li_r").mousemove(function(){
+				$(this).parents('.hot_box').find(".hot_box_li_r").removeClass('active');
+				$(this).addClass('active');
+			});
+		});
+		
+	</script>
+</html>
