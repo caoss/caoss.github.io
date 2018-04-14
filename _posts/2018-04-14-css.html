@@ -1,0 +1,20 @@
+---
+layout: default
+title: 闲来无事，当然要加班了。
+---
+
+<h2>{{ page.title }}</h2>
+
+<p>
+   今天讨论<span style='color:aqua;font-weight: 600'>.gitignore</span>文件的作用。
+</p>
+<p>
+    忽略一些文件的提交。像项目中不需要提交到本程的文件，可以在.gitignore文件中配置不需要提交文件的位置。
+    这样我们在提交的时候就可以避免这些文件被提交到远程了。
+</p>
+<p>
+    但是项目中的配置文件不能这么配置。因为我虽然不想让它在合并分支时改变，却需要它被提交到远程。
+</p>
+
+
+<p>{{ page.date | date_to_string }}</p>
