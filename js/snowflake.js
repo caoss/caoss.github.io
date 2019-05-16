@@ -110,7 +110,7 @@
 	d.prototype = {
 		createEl: function(g, f) {
 			this.el = document.createElement("img");
-			this.el.setAttribute("src", "images/Snowflake.png");
+			this.el.setAttribute("src", "/images/Snowflake.png");
 			this.el.style.position = "absolute";
 			this.el.style.display = "block";
 			this.el.style.zIndex = "99999";
