@@ -10,7 +10,11 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     <style>
 	*{margin:0;padding:0;list-style:none;}
-	html,body{height:100%;}
+    html,body{
+        height:100%;
+        width: 100%;
+        overflow: hidden;
+    }
 	body{background: url(/images/bg.jpg) no-repeat center center;background-size:cover;}
 	/* 以下是CSS3样式，适合高版本浏览器 */
 	.Snowflake{animation:linear spin infinite 20s;-webkit-animation:linear spin infinite 20s;-moz-animation:linear spin infinite 20s;pointer-events:none;}
