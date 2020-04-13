@@ -1,0 +1,39 @@
+---
+layout: default
+title:  GIT建站
+---
+
+<h2>{{ page.title }}</h2>
+
+<div>   
+	mysql-dev.yml-文件
+
+
+	spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: "jdbc:mysql://172.18.240.228/pax-dev?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&useSSL=false"
+    username: root
+    password: 123456
+    test-sql: SELECT 'x' FROM DUAL
+    pool:
+      init-size: 1
+      min-idle: 3
+      max-active: 20
+      max-wait: 120000
+
+# Customized configuration
+jdbc:
+  type: mysql
+  batch-process-size: 200
+
+
+	pom.xml
+	47行
+  <mpush.version>0.8.0-rc3</mpush.version>
+
+</div>
+
+
+<p>{{ page.date | date_to_string }}</p>
+
