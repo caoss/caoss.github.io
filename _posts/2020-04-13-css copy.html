@@ -6,9 +6,8 @@ title:  GIT建站
 <h2>{{ page.title }}</h2>
 
 <div>   
-	mysql-dev.yml-文件
-
-
+  mysql-dev.yml-文件
+  
 	spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
@@ -27,9 +26,17 @@ jdbc:
   type: mysql
   batch-process-size: 200
 
-
 	pom.xml
-	47行
+  47行
+
+
+执行流程：  
+<Route path="/dashboard" component={lazyLoad(() => import('./modules/dashboard/layout/container/AdminDashboard'))} />
+ 
+
+
+
+
   <mpush.version>0.8.0-rc3</mpush.version>
 
 </div>
