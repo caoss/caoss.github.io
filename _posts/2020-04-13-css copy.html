@@ -1,17 +1,7 @@
----
-layout: default
-title:  GIT建站
----
-
-<h2>{{ page.title }}</h2>
-
-<div>   
-  mysql-dev.yml-文件
-  
-	spring:
+spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: "jdbc:mysql://172.18.240.228/pax-dev?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&useSSL=false"
+    url: "jdbc:mysql://172.18.240.228:3306/pax-dev?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&useSSL=false"
     username: root
     password: 123456
     test-sql: SELECT 'x' FROM DUAL
@@ -25,22 +15,3 @@ title:  GIT建站
 jdbc:
   type: mysql
   batch-process-size: 200
-
-	pom.xml
-  47行
-
-
-执行流程：  ss
-<Route path="/dashboard" component={lazyLoad(() => import('./modules/dashboard/layout/container/AdminDashboard'))} />
- 
-
-
-
-
-  <mpush.version>0.8.0-rc3</mpush.version>
-
-</div>
-
-
-<p>{{ page.date | date_to_string }}</p>
-
