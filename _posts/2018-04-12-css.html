@@ -34,7 +34,46 @@ title: componentWillReceiveProps替代方案
         </p>
     </div>
 
-    <img src="/images/img_demo.png" alt="">
+
+    componentWillReceiveProps(nextProps) {
+        let isNeedRefresh = false;
+        const thisQuery = this.props.location.query;
+        const nextQuery = nextProps.location.query;
+        if (thisQuery.pageNo != nextQuery.pageNo) {
+            isNeedRefresh = true;
+        }
+        if (thisQuery.pageSize != nextQuery.pageSize) {
+            isNeedRefresh = true;
+        }
+        if (thisQuery.queryStr != nextQuery.queryStr) {
+            isNeedRefresh = true;
+        }
+        if (isNeedRefresh) {
+            this.getRevenueShareList(nextProps);
+        }
+    }
+
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (nextProps.location.query.pageSize !== prevState.pageSize ||
+            nextProps.location.query.queryStr !== prevState.queryStr ||
+            nextProps.location.query.pageNo !== prevState.pageNo) {
+            return {
+                pageSize: nextProps.location.query.pageSize,
+                pageNo: nextProps.location.query.pageNo,
+                queryStr: nextProps.location.query.queryStr,
+            };
+        }
+        return null;
+    }
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.pageSize !== prevState.pageSize ||
+            this.state.pageNo !== prevState.pageNo ||
+            this.state.queryStr !== prevState.queryStr
+        ) {
+            this.getRevenueShareList();
+        }
+    }
 
 </div>
 
