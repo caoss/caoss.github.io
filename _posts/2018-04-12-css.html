@@ -20,8 +20,8 @@ title: componentWillReceiveProps替代方案
         </p>
     </div>
 
-    <div>
-        <h4>React16版本新增生命周期 <b>getDerivedStateFromProps</b>>替代componentWillReceiveProps</h4>
+    <div style="margin-top:20px">
+        <h4>React16版本新增生命周期 <b>getDerivedStateFromProps</b>替代componentWillReceiveProps</h4>
         <p style="color: #159957;">1 含义</p>
         <p style="font-size: 16px;">
             getDerivedStateFromProps生命周期的意思就是从props中获取state，其功能实际上就是将传入的props映射到state上面。
@@ -34,47 +34,8 @@ title: componentWillReceiveProps替代方案
         </p>
     </div>
 
-
-    componentWillReceiveProps(nextProps) {
-        let isNeedRefresh = false;
-        const thisQuery = this.props.location.query;
-        const nextQuery = nextProps.location.query;
-        if (thisQuery.pageNo != nextQuery.pageNo) {
-            isNeedRefresh = true;
-        }
-        if (thisQuery.pageSize != nextQuery.pageSize) {
-            isNeedRefresh = true;
-        }
-        if (thisQuery.queryStr != nextQuery.queryStr) {
-            isNeedRefresh = true;
-        }
-        if (isNeedRefresh) {
-            this.getRevenueShareList(nextProps);
-        }
-    }
-
-
-    static getDerivedStateFromProps(nextProps, prevState) {
-        if (nextProps.location.query.pageSize !== prevState.pageSize ||
-            nextProps.location.query.queryStr !== prevState.queryStr ||
-            nextProps.location.query.pageNo !== prevState.pageNo) {
-            return {
-                pageSize: nextProps.location.query.pageSize,
-                pageNo: nextProps.location.query.pageNo,
-                queryStr: nextProps.location.query.queryStr,
-            };
-        }
-        return null;
-    }
-    componentDidUpdate(prevProps, prevState) {
-        if (this.state.pageSize !== prevState.pageSize ||
-            this.state.pageNo !== prevState.pageNo ||
-            this.state.queryStr !== prevState.queryStr
-        ) {
-            this.getRevenueShareList();
-        }
-    }
-
+    <img src="../images/img_demo.png" alt="">
+    
 </div>
 
 
