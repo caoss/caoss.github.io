@@ -14,8 +14,8 @@ title: componentWillReceiveProps替代方案
         因此在使用getDerivedStateFromProps的时候，遇到了上面说的props在很短的时间内多次变化，也只会触发一次render，也就是只触发一次getDerivedStateFromProps，从而提高了性能。
     </p>
 
-    <h1>React16版本新增生命周期getDerivedStateFromProps替代componentWillReceiveProps</h1>
-    <h2>1 含义</h2>> 
+    <h3>React16版本新增生命周期getDerivedStateFromProps替代componentWillReceiveProps</h3>
+    <h4>1 含义</h4>
     <p>
         getDerivedStateFromProps生命周期的意思就是从props中获取state，其功能实际上就是将传入的props映射到state上面。
         这个函数会在每次re-rendering之前被调用，意味着即使你的props没有任何变化，而是父state发生了变化，导致子组件发生了re-render，这个生命周期函数依然会被调用。
