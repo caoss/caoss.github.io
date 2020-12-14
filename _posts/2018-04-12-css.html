@@ -6,7 +6,7 @@ title: componentWillReceiveProps替代方案
 
 <div>
     <h3>componentWillReceiveProps，为何被废弃</h3>
-    <p style="font-size: 14px;">
+    <p style="font-size: 16px;">
         componentWillReceiveProps的写法并不存在什么功能上的问题，将componentWillReceiveProps标记为 deprecated-弃用 的原因也并不是因为功能问题，而是性能问题。
         componentWillReceiveProps是同步的，当外部多个属性在很短的时间间隔之内多次变化，就会导致componentWillReceiveProps被多次调用。
         这个调用并不会被合并，如果这次内容都会触发异步请求，那么可能会导致多个异步请求阻塞。而setState操作是会通过transaction进行合并的，
@@ -16,11 +16,11 @@ title: componentWillReceiveProps替代方案
 
     <h3>React16版本新增生命周期getDerivedStateFromProps替代componentWillReceiveProps</h3>
     <h4>1 含义</h4>
-    <p style="font-size: 14px;">
+    <p style="font-size: 16px;">
         getDerivedStateFromProps生命周期的意思就是从props中获取state，其功能实际上就是将传入的props映射到state上面。
         这个函数会在每次re-rendering之前被调用，意味着即使你的props没有任何变化，而是父state发生了变化，导致子组件发生了re-render，这个生命周期函数依然会被调用。
     </p>
-    <p style="font-size: 14px;">
+    <p style="font-size: 16px;">
         使用componentWillReceiveProps时：更新state
         而getDerivedStateFromProps是一个静态函数，也就是这个函数不能通过this访问到class的属性，也并不推荐直接访问属性。而是应该通过参数提供的nextProps以及prevState来进行判断，根据新传入的props来映射到state。
         需要注意的是，如果props传入的内容不需要影响到你的state，那么就需要返回一个null，这个返回值是必须的，所以尽量将其写到函数的末尾。
