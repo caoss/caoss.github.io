@@ -27,20 +27,28 @@ title: componentWillReceiveProps替代方案
             getDerivedStateFromProps生命周期的意思就是从props中获取state，其功能实际上就是将传入的props映射到state上面。
             这个函数会在每次re-rendering之前被调用，意味着即使你的props没有任何变化，而是父state发生了变化，导致子组件发生了re-render，这个生命周期函数依然会被调用。
         </p>
+        <p style="font-size: 16px;">
+            用一个静态函数getDerivedStateFromProps来取代被deprecate的几个生命周期函数，就是强制开发者在render之前只做无副作用的操作，而且能做的操作局限在根据props和state决定新的state，而已。
+        </p>
     </div>
     <div style="margin-top:20px">
         <p style="color: #159957;">2 用法比较</p>
-        <img src="/images//img_demo.png" alt="">
         <p style="font-size: 16px;">
             使用componentWillReceiveProps时,直接更新state。而getDerivedStateFromProps是一个静态函数，也就是这个函数不能通过this访问到class的属性，也并不推荐直接访问属性。
             而是应该通过参数提供的nextProps以及prevState来进行判断，根据新传入的props来映射到state。
             需要注意的是，如果props传入的内容不需要影响到你的state，那么就需要返回一个null，这个返回值是必须的，所以尽量将其写到函数的末尾。
         </p>
+        <img src="/images//img_demo.png" alt="">
     </div>
+
 
     <div style="margin-top:20px">
         <p style="color: #159957;">3 React v16.3之后的生命周期函数一览图。</p>
         <img src="/images/v2-930c5299db442e73dbb1d2f9c92310d4_r.jpg" alt="">
+    </div>
+    <div style="margin-top:20px">
+        <p style="color: #159957;">4 componentWillReceiveProps和componentDidUpdate区别。</p>
+        <img src="/images/com_update.png" alt="">
     </div>
 
     
