@@ -1,19 +1,68 @@
 ---
 layout: default
-title: 4月12号
+title: componentWillReceiveProps替代方案
 ---
-
 <h2>{{ page.title }}</h2>
 
-<p>
-    user-vsCode
-</p>
-<p>
-    最近开始使用了 <span style='color:aqua'>vsCode</span>-visual Studio Code编辑器。
-    感觉功能很强大，插件系统特别好用。之前一直使用Hbuilder（感谢）。Hbuilder也很不错。非常适合小白。
-</p>
-<p>
-    开始写日记，记录碌碌无为的生活。不知道可以坚持几天。还有打算写写小说的冲动，暂时惰性战胜了冲动。
-</p>
+<div>
+    componentWillReceiveProps，为何被废弃
+    componentWillReceiveProps的写法并不存在什么功能上的问题，将componentWillReceiveProps标记为 deprecated-弃用 的原因也并不是因为功能问题，而是性能问题。
+    componentWillReceiveProps是同步的，当外部多个属性在很短的时间间隔之内多次变化，就会导致componentWillReceiveProps被多次调用。
+    这个调用并不会被合并，如果这次内容都会触发异步请求，那么可能会导致多个异步请求阻塞。而setState操作是会通过transaction进行合并的，
+    由此导致的更新过程是批量的，而react中大部分的更新过程的触发源都是setState，所以render触发的频率并不会非常频繁。
+    因此在使用getDerivedStateFromProps的时候，遇到了上面说的props在很短的时间内多次变化，也只会触发一次render，也就是只触发一次getDerivedStateFromProps，从而提高了性能。
+
+    <p>React16版本新增生命周期getDerivedStateFromProps替代componentWillReceiveProps</p>
+    1 含义
+    getDerivedStateFromProps生命周期的意思就是从props中获取state，其功能实际上就是将传入的props映射到state上面。
+    这个函数会在每次re-rendering之前被调用，意味着即使你的props没有任何变化，而是父state发生了变化，导致子组件发生了re-render，这个生命周期函数依然会被调用。
+
+    使用componentWillReceiveProps时：更新state
+    而getDerivedStateFromProps是一个静态函数，也就是这个函数不能通过this访问到class的属性，也并不推荐直接访问属性。而是应该通过参数提供的nextProps以及prevState来进行判断，根据新传入的props来映射到state。
+    需要注意的是，如果props传入的内容不需要影响到你的state，那么就需要返回一个null，这个返回值是必须的，所以尽量将其写到函数的末尾。
+
+
+    componentWillReceiveProps(nextProps) {
+        let isNeedRefresh = false;
+        const thisQuery = this.props.location.query;
+        const nextQuery = nextProps.location.query;
+        if (thisQuery.pageNo != nextQuery.pageNo) {
+            isNeedRefresh = true;
+        }
+        if (thisQuery.pageSize != nextQuery.pageSize) {
+            isNeedRefresh = true;
+        }
+        if (thisQuery.queryStr != nextQuery.queryStr) {
+            isNeedRefresh = true;
+        }
+        if (isNeedRefresh) {
+            this.getRevenueShareList(nextProps);
+        }
+    }
+
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (nextProps.location.query.pageSize !== prevState.pageSize ||
+            nextProps.location.query.queryStr !== prevState.queryStr ||
+            nextProps.location.query.pageNo !== prevState.pageNo) {
+            return {
+                pageSize: nextProps.location.query.pageSize,
+                pageNo: nextProps.location.query.pageNo,
+                queryStr: nextProps.location.query.queryStr,
+            };
+        }
+        return null;
+    }
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.pageSize !== prevState.pageSize ||
+            this.state.pageNo !== prevState.pageNo ||
+            this.state.queryStr !== prevState.queryStr
+        ) {
+            this.getRevenueShareList();
+        }
+    }
+
+</div>
+
 
 <p>{{ page.date | date_to_string }}</p>
