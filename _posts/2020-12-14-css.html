@@ -31,6 +31,7 @@ title: componentWillReceiveProps替代方案
             用一个静态函数getDerivedStateFromProps来取代被deprecate的几个生命周期函数，就是强制开发者在render之前只做无副作用的操作，而且能做的操作局限在根据props和state决定新的state，而已。
         </p>
     </div>
+
     <div style="margin-top:20px">
         <p style="color: #159957;">2 用法比较</p>
         <p style="font-size: 16px;">
@@ -43,7 +44,6 @@ title: componentWillReceiveProps替代方案
             this.getRevenueShareList();在这个方法中，请求接口数据，更新state。
         </p>
     </div>
-
 
     <div style="margin-top:20px">
         <p style="color: #159957;">3 React v16.3之后的生命周期函数一览图。</p>
