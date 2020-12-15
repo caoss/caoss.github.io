@@ -30,6 +30,12 @@ title: componentWillReceiveProps替代方案
         <p style="font-size: 16px;">
             用一个静态函数getDerivedStateFromProps来取代被deprecate的几个生命周期函数，就是强制开发者在render之前只做无副作用的操作，而且能做的操作局限在根据props和state决定新的state，而已。
         </p>
+        <p style="font-size: 16px;">
+            getDerivedStateFromProps exists for only one purpose. It enables a component to update its internal state as the result of changes in props.
+        </p>
+        <p style="font-size: 16px;">
+            从上边这句话中，我们可以清晰知道 getDerivedStateFromProps 的作用就是为了让 props 能更新到组件内部 state 中
+        </p>
     </div>
 
     <div style="margin-top:20px">
